@@ -76,7 +76,7 @@ const Write = () => {
       <h1 className="text-cl font-light">Create a New Post</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1 mb-6">
         <Upload type="image" setProgress={setProgress} setData={setCover}>
-          <button className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white">
+          <button className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white cursor-pointer">
             Add a cover image
           </button>
         </Upload>
@@ -93,7 +93,7 @@ const Write = () => {
           <select
             name="category"
             id=""
-            className="p-2 rounded-xl bg-white shadow-md"
+            className="p-2 rounded-xl bg-white shadow-md cursor-pointer"
           >
             <option value="general">General</option>
             <option value="web-design">Web Design</option>

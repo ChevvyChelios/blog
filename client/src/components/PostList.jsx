@@ -36,7 +36,6 @@ const PostList = () => {
 
   // if (status === "loading") return "Loading...";
   if (isFetching) return "Loading...";
-  
 
   // if (status === "error") return "Something went wrong!";
   if (error) return "Something went wrong!";
@@ -55,9 +54,6 @@ const PostList = () => {
         </p>
       }
     >
-      {/* {allPosts.filter((post)=> post && post._id).map((post) => (
-        <PostListItem key={post._id} post={post} />
-      ))} */}
       {allPosts.map((post) => (
         <PostListItem key={post._id} post={post} />
       ))}
