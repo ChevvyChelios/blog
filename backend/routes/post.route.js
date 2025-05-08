@@ -13,6 +13,9 @@ const router = express.Router();
 
 router.get("/upload-auth", uploadAuth);
 
+// router.get("/", (req, res) => {
+//   res.status(200).send("it works!");
+// });
 router.get("/", getPosts);
 router.get("/:slug", increaseVisit, getPost);
 router.post("/", createPost);
