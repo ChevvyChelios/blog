@@ -23,8 +23,8 @@ app.use(
 );
 
 app.use(clerkMiddleware());
-app.use(express.json());
 app.use("/webhooks", webhookRouter);
+app.use(express.json());
 
 
 app.get("/", (req, res) => {
