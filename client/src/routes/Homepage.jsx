@@ -17,11 +17,14 @@ const Homepage = () => {
         {/* titles */}
         <div className="">
           <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Explore our blogs
           </h1>
           <p className="mt-8 text-md md:text-xl">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-            rerum accusantium.
+            Cultural heritage is essential for preserving our identity,
+            fostering social cohesion, and promoting economic growth through
+            tourism and education. It connects us to our ancestors, enriches our
+            understanding of the world, and ensures that future generations
+            inherit a rich tapestry of traditions and values.
           </p>
         </div>
         {/* animated button */}
@@ -70,7 +73,7 @@ const Homepage = () => {
       {/* POST LIST */}
       <div className="">
         <h1 className="my-8 text-2xl text-gray-600">Recent Posts</h1>
-        <PostList/>
+        <PostList />
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ const Comment = ({ comment, postId }) => {
     <div className="p-4 bg-slate-50 rounded-xl mb-8">
       <div className="flex items-center gap-4">
         {comment.user.img && (
-          <Image
+          <img
             src={comment.user.img}
             className="w-10 h-10 rounded-full object-cover"
             w="40"

@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
+import { useRef } from "react";
 
 const fetchComments = async (postId) => {
   const res = await axios.get(
@@ -14,6 +15,8 @@ const fetchComments = async (postId) => {
 const Comments = ({ postId }) => {
   const { user } = useUser();
   const { getToken } = useAuth();
+
+  const textareaRef = useRef(null);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["comments", postId],
@@ -37,6 +40,9 @@ const Comments = ({ postId }) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["comments", postId] });
+      if (textareaRef.current) {
+        textareaRef.current.value = "";
+      }
     },
     onError: (error) => {
       toast.error(error.response.data);
@@ -65,6 +71,7 @@ const Comments = ({ postId }) => {
           name="desc"
           placeholder="Write a comment..."
           className="w-full p-4 rounded-xl"
+          ref={textareaRef}
         />
         <button className="bg-blue-800 px-4 py-3 text-white font-medium rounded-xl">
           Send

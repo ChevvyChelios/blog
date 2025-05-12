@@ -24,6 +24,8 @@ const SinglePostPage = () => {
   if (error) return "Something went wrong!" + error.message;
   if (!data) return "Post not found!";
 
+  // document.getElementById("content").innerHTML = data.content;
+
   return (
     <div className="flex flex-col gap-8">
       {/* detail */}
@@ -51,16 +53,26 @@ const SinglePostPage = () => {
       <div className="flex flex-col md:flex-row gap-12 justify-between">
         {/* text */}
         <div className="lg:text-lg flex flex-col gap-6 text-justify">
-         <p>{data.content}</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem similique ex omnis mollitia consequatur ab nemo aliquam quia error alias! Dolorem distinctio iure placeat consequuntur soluta consequatur cumque? Harum unde blanditiis autem repellendus sequi quas fugiat, repudiandae esse eius sit, distinctio deleniti doloribus illo cupiditate inventore libero. Illum, labore veritatis?</p>
+
+          <div dangerouslySetInnerHTML={{__html: data.content}}></div>
+          {/* <div>{data.content}</div> */}
+          {/* <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+            similique ex omnis mollitia consequatur ab nemo aliquam quia error
+            alias! Dolorem distinctio iure placeat consequuntur soluta
+            consequatur cumque? Harum unde blanditiis autem repellendus sequi
+            quas fugiat, repudiandae esse eius sit, distinctio deleniti
+            doloribus illo cupiditate inventore libero. Illum, labore veritatis?
+          </p> */}
         </div>
+        
         {/* menu */}
         <div className="px-4 h-max sticky top-8">
           <h1 className="mb-4 text-sm font-medium">Author</h1>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-8">
               {data.user.img && (
-                <Image
+                <img
                   src={data.user.img}
                   className="w-12 h-12 rounded-full object-cover"
                   w="48"
@@ -81,7 +93,7 @@ const SinglePostPage = () => {
               </Link>
             </div>
           </div>
-          <PostMenuActions post={data}/>
+          <PostMenuActions post={data} />
           <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
           <div className="flex flex-col gap-2 text-sm">
             <Link className="underline">All</Link>
@@ -105,7 +117,7 @@ const SinglePostPage = () => {
           <Search />
         </div>
       </div>
-      <Comments postId={data._id}/>
+      <Comments postId={data._id} />
     </div>
   );
 };
