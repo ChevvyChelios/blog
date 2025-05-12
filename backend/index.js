@@ -35,6 +35,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.send("Hey this is my API running 🥳");
+});
+
 // app.get("/test",(req,res)=>{
 //   res.status(200).send("it works!")
 // })
