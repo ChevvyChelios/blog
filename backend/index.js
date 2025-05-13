@@ -22,10 +22,10 @@ const port = process.env.PORT || 3000;
   })
 );
 */
-
+app.use(express.json());
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
-app.use(express.json());
+
 
 
 app.get("/", (req, res) => {
